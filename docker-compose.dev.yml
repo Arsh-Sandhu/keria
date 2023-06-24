@@ -1,0 +1,22 @@
+version: "3.7"
+
+
+services:  
+  keria:
+    image: weboftrust/keria:0.0.1
+    # build:
+    #   context: .
+    #   dockerfile: ./images/keria.dockerfile
+    # restart: always
+    ports:      
+      - 3901:3901
+      - 3902:3902
+      - 3903:3903
+    environment:
+      - KERI_AGENT_CORS=false
+    volumes:
+      - ${HOME}/.keri:/usr/local/var/keri/
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
+    # network_mode: host
+
